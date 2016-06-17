@@ -1,0 +1,388 @@
+<div class="sidebar" id="sidebar">
+
+    <!--
+    <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+        <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+            <button class="btn btn-success">
+                <i class="icon-signal"></i>
+            </button>
+
+            <button class="btn btn-info">
+                <i class="icon-pencil"></i>
+            </button>
+
+            <button class="btn btn-warning">
+                <i class="icon-group"></i>
+            </button>
+
+            <button class="btn btn-danger">
+                <i class="icon-cogs"></i>
+            </button>
+        </div>
+
+        <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+            <span class="btn btn-success"></span>
+
+            <span class="btn btn-info"></span>
+
+            <span class="btn btn-warning"></span>
+
+            <span class="btn btn-danger"></span>
+        </div>
+    </div>  #sidebar-shortcuts -->
+<ul class="nav nav-list">
+
+    <% menuArray.forEach(function(menu_1){
+        var subMenu = menu_1.sub_menu;
+    %>
+    <li class="">
+        <%if(subMenu.length > 0){%>
+            <a href="javascript:void(0)" class="dropdown-toggle">
+        <%}else{%>
+            <a href="<%=menu_1.menu_url%>">
+        <%}%>
+            <i class="icon-dashboard"></i>
+            <span class="menu-text"><%=menu_1.menu_name%></span>
+            <%if(subMenu.length > 0){%>
+                <b class="arrow icon-angle-down"></b>
+            <%}%>
+        </a>
+        <%if(subMenu.length > 0){%>
+        <ul class="submenu">
+            <%
+                subMenu.forEach(function(menu_2){
+                var secMenu = menu_2.sub_menu;
+            %>
+            <li class="">
+                    <%if(secMenu.length > 0){%>
+                        <a href="javascript:void(0)" class="dropdown-toggle">
+                    <%}else{%>
+                        <a href="<%=menu_2.menu_url%>">
+                    <%}%>
+                    <i class="icon-double-angle-right"></i>
+                    <%=menu_2.menu_name%>
+                    <%if(secMenu.length > 0){%>
+                    <b class="arrow icon-angle-down"></b>
+                    <%}%>
+                </a>
+                <%if(secMenu.length > 0){}%>
+                <%secMenu.forEach(function(menu_3){%>
+                <ul class="submenu">
+                    <li class="">
+                        <a href="<%=menu_3.menu_url%>">
+                            <i class="icon-leaf"></i>
+                            <%= menu_3.menu_name%>
+                        </a>
+                    </li>
+                </ul>
+                <%});%>
+            </li>
+            <%});%>
+
+        </ul>
+        <%}%>
+    </li>
+    <%}); %>
+    <li class="">
+        <a href="/index">
+            <i class="icon-dashboard"></i>
+            <span class="menu-text">首页</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="../demo/typography.html">
+            <i class="icon-text-width"></i>
+            <span class="menu-text"> 文字排版 </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="#" class="dropdown-toggle">
+            <i class="icon-desktop"></i>
+            <span class="menu-text"> UI 组件 </span>
+
+            <b class="arrow icon-angle-down"></b>
+        </a>
+
+        <ul class="submenu">
+            <li>
+                <a href="../demo/elements.html">
+                    <i class="icon-double-angle-right"></i>
+                    组件
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/buttons.html">
+                    <i class="icon-double-angle-right"></i>
+                    按钮 &amp; 图表
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/treeview.html">
+                    <i class="icon-double-angle-right"></i>
+                    树菜单
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/jquery-ui.html">
+                    <i class="icon-double-angle-right"></i>
+                    jQuery UI
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/nestable-list.html">
+                    <i class="icon-double-angle-right"></i>
+                    可拖拽列表
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-double-angle-right"></i>
+
+                    三级菜单
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li>
+                        <a href="#">
+                            <i class="icon-leaf"></i>
+                            第一级
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <i class="icon-pencil"></i>
+
+                            第四级
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+
+                        <ul class="submenu">
+                            <li>
+                                <a href="#">
+                                    <i class="icon-plus"></i>
+                                    添加产品
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <i class="icon-eye-open"></i>
+                                    查看商品
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#" class="dropdown-toggle">
+            <i class="icon-list"></i>
+            <span class="menu-text"> 表格 </span>
+
+            <b class="arrow icon-angle-down"></b>
+        </a>
+
+        <ul class="submenu">
+            <li>
+                <a href="../demo/tables.html">
+                    <i class="icon-double-angle-right"></i>
+                    简单 &amp; 动态
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/jqgrid.html">
+                    <i class="icon-double-angle-right"></i>
+                    jqGrid plugin
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#" class="dropdown-toggle">
+            <i class="icon-edit"></i>
+            <span class="menu-text"> 表单 </span>
+
+            <b class="arrow icon-angle-down"></b>
+        </a>
+
+        <ul class="submenu">
+            <li>
+                <a href="../demo/form-elements.html">
+                    <i class="icon-double-angle-right"></i>
+                    表单组件
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/form-wizard.html">
+                    <i class="icon-double-angle-right"></i>
+                    向导提示 &amp; 验证
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/wysiwyg.html">
+                    <i class="icon-double-angle-right"></i>
+                    编辑器
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/dropzone.html">
+                    <i class="icon-double-angle-right"></i>
+                    文件上传
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="../demo/widgets.html">
+            <i class="icon-list-alt"></i>
+            <span class="menu-text"> 插件 </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="../demo/calendar.html">
+            <i class="icon-calendar"></i>
+
+                <span class="menu-text">
+                    日历
+                    <span class="badge badge-transparent tooltip-error" title="2&nbsp;Important&nbsp;Events">
+                        <i class="icon-warning-sign red bigger-130"></i>
+                    </span>
+                </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="../demo/gallery.html">
+            <i class="icon-picture"></i>
+            <span class="menu-text"> 相册 </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="#" class="dropdown-toggle">
+            <i class="icon-tag"></i>
+            <span class="menu-text"> 更多页面 </span>
+
+            <b class="arrow icon-angle-down"></b>
+        </a>
+
+        <ul class="submenu">
+            <li>
+                <a href="../demo/profile.html">
+                    <i class="icon-double-angle-right"></i>
+                    用户信息
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/inbox.html">
+                    <i class="icon-double-angle-right"></i>
+                    收件箱
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/pricing.html">
+                    <i class="icon-double-angle-right"></i>
+                    售价单
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/invoice.html">
+                    <i class="icon-double-angle-right"></i>
+                    购物车
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/timeline.html">
+                    <i class="icon-double-angle-right"></i>
+                    时间轴
+                </a>
+            </li>
+
+            <li>
+                <a href="../login.ejs">
+                    <i class="icon-double-angle-right"></i>
+                    登录 &amp; 注册
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#" class="dropdown-toggle">
+            <i class="icon-file-alt"></i>
+
+								<span class="menu-text">
+									其他页面
+									<span class="badge badge-primary ">5</span>
+								</span>
+
+            <b class="arrow icon-angle-down"></b>
+        </a>
+
+        <ul class="submenu">
+            <li>
+                <a href="../demo/faq.html">
+                    <i class="icon-double-angle-right"></i>
+                    帮助
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/error-404.html">
+                    <i class="icon-double-angle-right"></i>
+                    404错误页面
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/error-500.html">
+                    <i class="icon-double-angle-right"></i>
+                    500错误页面
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/grid.html">
+                    <i class="icon-double-angle-right"></i>
+                    网格
+                </a>
+            </li>
+
+            <li>
+                <a href="../demo/blank.html">
+                    <i class="icon-double-angle-right"></i>
+                    空白页面
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul><!-- /.nav-list -->
+<div class="sidebar-collapse" id="sidebar-collapse">
+    <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+</div>
+
+
+</div>
